@@ -10,6 +10,7 @@ import {
 } from "./utils";
 import Starfield from "./components/Starfield";
 import MiniMap from "./components/MiniMap";
+import { ScaleIcon } from "./components/ScaleIcons";
 
 const STEP_VH = 100; // ระยะสกอลล์ต่อหนึ่งจุดอ้างอิง (หน่วย vh)
 const HUMAN_HEIGHT_M = 1.7;
@@ -166,10 +167,10 @@ export default function App() {
             style={{ top: `${topA}%`, opacity: opacityA }}
           >
             <div
-              className="drop-shadow-[0_0_28px_rgba(255,255,255,0.3)]"
-              style={{ fontSize: sizeA }}
+              className="text-white drop-shadow-[0_0_28px_rgba(255,255,255,0.3)]"
+              style={{ width: sizeA, height: sizeA }}
             >
-              {pointA.emoji}
+              <ScaleIcon id={pointA.id} />
             </div>
             <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.2em] text-white/70 sm:text-xs">
               {pointA.name}
@@ -182,10 +183,10 @@ export default function App() {
             style={{ top: `${topB}%`, opacity: opacityB }}
           >
             <div
-              className="drop-shadow-[0_0_28px_rgba(255,255,255,0.3)]"
-              style={{ fontSize: sizeB }}
+              className="text-white drop-shadow-[0_0_28px_rgba(255,255,255,0.3)]"
+              style={{ width: sizeB, height: sizeB }}
             >
-              {pointB.emoji}
+              <ScaleIcon id={pointB.id} />
             </div>
             <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.2em] text-white/70 sm:text-xs">
               {pointB.name}
@@ -239,9 +240,12 @@ export default function App() {
       <section className="relative flex min-h-[70vh] flex-col items-center justify-center gap-5 overflow-hidden bg-[#03020a] px-6 py-20 text-center">
         <Starfield opacity={0.6} />
         <div className="relative z-10">
-          <p className="text-4xl" style={{ animation: "float-bob 4s ease-in-out infinite" }}>
-            🔭
-          </p>
+          <div
+            className="mx-auto text-white drop-shadow-[0_0_28px_rgba(255,255,255,0.3)]"
+            style={{ width: 56, height: 56, animation: "float-bob 4s ease-in-out infinite" }}
+          >
+            <ScaleIcon id="universe" />
+          </div>
           <h2 className="mt-4 text-2xl font-bold sm:text-3xl">
             คุณเพิ่งเดินทางผ่านสเกลกว่า 10⁴⁵ เท่า
           </h2>
