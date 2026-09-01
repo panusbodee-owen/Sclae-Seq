@@ -193,24 +193,21 @@ export default function App() {
             </p>
           </div>
 
-          {/* เส้นประ + ตัวเลขสเกลปัจจุบันตัวใหญ่ คั่นกลางคงที่ */}
-          <div className="absolute inset-x-0" style={{ top: "62%" }}>
-            <div className="border-t border-dashed border-white/25" />
-            <div className="absolute inset-x-0 -translate-y-1/2 px-6 text-center">
-              <p
-                className="font-mono text-2xl font-extrabold tabular-nums text-white sm:text-4xl"
-                style={{ textShadow: `0 0 30px ${bgColor}` }}
-              >
-                {formatMeters(currentMeters)}
-              </p>
-              <p className="mt-2 inline-block rounded-full border border-white/20 bg-black/40 px-3.5 py-1 text-[11px] text-white/80 backdrop-blur sm:text-xs">
-                {isHumanScale
-                  ? "นี่คือขนาดตัวคุณเองพอดี 🎉"
-                  : ratioToHuman >= 1
-                    ? `ใหญ่กว่าคุณ ${formatMultiplier(ratioToHuman)} เท่า`
-                    : `เล็กกว่าคุณ ${formatMultiplier(1 / ratioToHuman)} เท่า`}
-              </p>
-            </div>
+          {/* ตัวเลขสเกลปัจจุบัน — มุมขวาบน ชิดขวา */}
+          <div className="absolute right-4 top-4 z-20 max-w-[70vw] text-right sm:right-8 sm:top-8 md:right-64">
+            <p
+              className="font-mono text-xl font-extrabold tabular-nums text-white sm:text-3xl"
+              style={{ textShadow: `0 0 24px ${bgColor}` }}
+            >
+              {formatMeters(currentMeters)}
+            </p>
+            <p className="mt-2 inline-block rounded-full border border-white/20 bg-black/40 px-3 py-1 text-[10px] text-white/80 backdrop-blur sm:text-xs">
+              {isHumanScale
+                ? "นี่คือขนาดตัวคุณเองพอดี 🎉"
+                : ratioToHuman >= 1
+                  ? `ใหญ่กว่าคุณ ${formatMultiplier(ratioToHuman)} เท่า`
+                  : `เล็กกว่าคุณ ${formatMultiplier(1 / ratioToHuman)} เท่า`}
+            </p>
           </div>
 
           {/* bottom progress bar */}
