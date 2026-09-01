@@ -106,6 +106,14 @@ export default function App() {
     <div className="relative">
       <div className="grain-overlay" />
 
+      <a
+        href="../"
+        title="กลับหน้ารวมโปรเจกต์"
+        className="fixed left-4 top-4 z-50 text-xs text-white/40 transition hover:text-white/80 sm:left-6 sm:top-6"
+      >
+        ← Panusbodee's Lab
+      </a>
+
       {/* Hero */}
       <section className="relative flex h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
         <div
