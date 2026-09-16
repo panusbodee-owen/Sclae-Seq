@@ -24,7 +24,7 @@ export function formatMeters(meters: number): string {
   if (meters >= 1e-3 && meters < 1e6) {
     if (meters < 1) return `${meters.toFixed(meters < 0.01 ? 4 : 3)} เมตร`;
     if (meters < 100) return `${meters.toFixed(2)} เมตร`;
-    return `${Math.round(meters).toLocaleString("th-TH")} เมตร`;
+    return `${Math.round(meters).toLocaleString(document.documentElement.lang)} เมตร`;
   }
   const exp = Math.floor(Math.log10(meters));
   const mantissa = meters / 10 ** exp;
@@ -34,7 +34,7 @@ export function formatMeters(meters: number): string {
 /** จัดรูปแบบตัวเลขจำนวนเท่า เช่น "1,204 เท่า" หรือ "≈ 10⁴³ เท่า" */
 export function formatMultiplier(ratio: number): string {
   if (ratio < 10) return `${ratio.toFixed(1)}`;
-  if (ratio < 1e6) return Math.round(ratio).toLocaleString("th-TH");
+  if (ratio < 1e6) return Math.round(ratio).toLocaleString(document.documentElement.lang);
   const exp = Math.floor(Math.log10(ratio));
   return `≈ 10${toSuperscript(exp)}`;
 }
